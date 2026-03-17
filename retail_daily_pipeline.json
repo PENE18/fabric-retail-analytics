@@ -1,0 +1,72 @@
+{
+    "name": "retail_daily_pipeline",
+    "objectId": "f827e4d7-cfca-4dd2-9f01-262de8a60466",
+    "properties": {
+        "activities": [
+            {
+                "name": "02_bronze_load",
+                "type": "TridentNotebook",
+                "dependsOn": [],
+                "policy": {
+                    "timeout": "0.12:00:00",
+                    "retry": 0,
+                    "retryIntervalInSeconds": 30,
+                    "secureOutput": false,
+                    "secureInput": false
+                },
+                "typeProperties": {
+                    "notebookId": "68bc50d4-1bd4-41db-b62c-7d3e06903688",
+                    "workspaceId": "03aff517-2cd9-4685-80f5-b33dc1dd5d9e"
+                }
+            },
+            {
+                "name": "03_silver_transform",
+                "type": "TridentNotebook",
+                "dependsOn": [
+                    {
+                        "activity": "02_bronze_load",
+                        "dependencyConditions": [
+                            "Completed"
+                        ]
+                    }
+                ],
+                "policy": {
+                    "timeout": "0.12:00:00",
+                    "retry": 0,
+                    "retryIntervalInSeconds": 30,
+                    "secureOutput": false,
+                    "secureInput": false
+                },
+                "typeProperties": {
+                    "notebookId": "ed53db34-d726-4b59-a060-a6447c9efc27",
+                    "workspaceId": "03aff517-2cd9-4685-80f5-b33dc1dd5d9e"
+                }
+            },
+            {
+                "name": "04_gold_aggregations",
+                "type": "TridentNotebook",
+                "dependsOn": [
+                    {
+                        "activity": "03_silver_transform",
+                        "dependencyConditions": [
+                            "Completed"
+                        ]
+                    }
+                ],
+                "policy": {
+                    "timeout": "0.12:00:00",
+                    "retry": 0,
+                    "retryIntervalInSeconds": 30,
+                    "secureOutput": false,
+                    "secureInput": false
+                },
+                "typeProperties": {
+                    "notebookId": "baf912bf-b685-4a2a-a167-e8ca93de5ed5",
+                    "workspaceId": "03aff517-2cd9-4685-80f5-b33dc1dd5d9e"
+                }
+            }
+        ],
+        "lastModifiedByObjectId": "b58e01f6-6639-4ca9-87ed-90db40379fbf",
+        "lastPublishTime": "2026-03-14T23:24:21Z"
+    }
+}
