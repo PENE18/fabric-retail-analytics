@@ -171,7 +171,9 @@ GROUP BY product, region
 ```
 `OPTIMIZE` compacts small Delta files into larger ones — critical for DirectLake
 read performance.
+![Description of image](screen/gold_performance.png)
 
+![Description of image](screen/gold_revenue.png)
 ### Step 5 — Orchestration
 
 A Data Factory pipeline chains all three notebooks with success dependencies and
