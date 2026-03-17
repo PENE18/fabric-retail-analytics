@@ -12,13 +12,7 @@
 
 ## Architecture overview
 
-```
-CSV / Files ──┐
-SQL Database ──┤
-REST APIs ─────┼──▶  Data Factory  ──▶  Bronze (raw)  ──▶  Silver (cleansed)  ──▶  Gold (aggregated)  ──▶  Power BI
-Event Hubs ────┤     Pipelines          Delta / OneLake    Delta MERGE upsert      Star schema / KPIs      DirectLake
-SaaS apps ─────┘
-```
+![Description of image](screen/architecture.png)
 
 **Medallion layers**
 
