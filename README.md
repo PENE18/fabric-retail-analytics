@@ -182,7 +182,9 @@ runs on a daily schedule at 06:00 UTC. Email alerts fire on any activity failure
 ```
 bronze_load  ──(success)──▶  silver_transform  ──(success)──▶  gold_aggregations
 ```
+![Description of image](screen/pipeline.png)
 
+![Description of image](screen/schudle.png)
 ### Step 6 — Power BI DirectLake
 
 A semantic model is created directly from the Lakehouse SQL endpoint. Power BI
