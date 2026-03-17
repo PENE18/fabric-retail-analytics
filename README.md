@@ -4,6 +4,10 @@
 > medallion lakehouse architecture over 50,000 synthetic retail transactions —
 > from raw ingestion to Power BI DirectLake reporting.
 
+![Fabric](https://img.shields.io/badge/Microsoft-Fabric-blue)
+![Spark](https://img.shields.io/badge/Apache-Spark-orange)
+![Delta](https://img.shields.io/badge/Delta-Lake-green)
+![PowerBI](https://img.shields.io/badge/PowerBI-DirectLake-yellow)
 ---
 
 ## Architecture overview
