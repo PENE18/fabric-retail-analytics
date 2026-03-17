@@ -1,8 +1,25 @@
 # Retail Sales Analytics Pipeline — Microsoft Fabric
 
-> End-to-end data engineering project built on Microsoft Fabric, implementing a
-> medallion lakehouse architecture over 50,000 synthetic retail transactions —
-> from raw ingestion to Power BI DirectLake reporting.
+Description
+This project is a production-grade, end-to-end data engineering pipeline built entirely
+on Microsoft Fabric. It models a retail company's sales analytics platform — ingesting raw
+transaction data, transforming it through a medallion lakehouse architecture (Bronze → Silver
+→ Gold), and serving business-ready metrics to Power BI via DirectLake.
+The pipeline processes 50,000 synthetic retail orders spanning 8 product categories,
+4 sales regions, and 3 channels (Online, In-Store, Mobile) across a full calendar year.
+Intentional data quality issues — null regions, negative unit prices — are baked into the
+source to make the cleansing and validation logic realistic and meaningful.
+Every engineering decision mirrors what you would find in a production data platform at scale:
+idempotent MERGE upserts, schema evolution handling, Delta file optimisation for BI performance,
+orchestrated retry-capable pipelines, and a full Git-based CI/CD workflow with feature branches
+and pull requests.
+This project demonstrates:
+
+Medallion lakehouse design (Bronze / Silver / Gold) on OneLake with Delta Parquet
+PySpark data quality enforcement and Delta MERGE (SCD Type 1 upsert pattern)
+Data Factory pipeline orchestration with daily scheduling and failure alerting
+Power BI DirectLake semantic model — no data import, no DirectQuery overhead
+Version-controlled Fabric workspace via GitHub Git integration
 
 ![Fabric](https://img.shields.io/badge/Microsoft-Fabric-blue)
 ![Spark](https://img.shields.io/badge/Apache-Spark-orange)
