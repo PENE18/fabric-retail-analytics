@@ -98,7 +98,7 @@ df_raw.write \
     .option('mergeSchema', 'true') \
     .saveAsTable('bronze_sales')
 ```
-
+![Description of image](screen/bronze_sales.png)
 **Why Bronze matters:** It is the recovery point. If Silver logic breaks, you re-run
 from Bronze — you never re-pull from the source system.
 
@@ -134,6 +134,8 @@ DeltaTable.forName(spark, 'silver_sales') \
 - Cast `order_date` to `DateType`
 - Recompute `revenue = quantity × unit_price`
 - Stamp `_loaded_at` audit column
+
+![Description of image](screen/silver_sales.png)
 
 ### Step 4 — Gold aggregations (BI-ready)
 
