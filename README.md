@@ -157,8 +157,18 @@ GROUP BY order_date, region, channel;
 
 OPTIMIZE gold_daily_revenue;
 OPTIMIZE gold_product_performance;
-```
 
+CREATE OR REPLACE TABLE gold_product_performance AS
+SELECT
+    product,
+    region,
+    ROUND(SUM(revenue), 2)          AS total_revenue,
+    SUM(quantity)                    AS total_units,
+    ROUND(AVG(unit_price), 2)        AS avg_price,
+    RANK() OVER (ORDER BY SUM(revenue) DESC) AS revenue_rank
+FROM silver_sales
+GROUP BY product, region
+```
 `OPTIMIZE` compacts small Delta files into larger ones — critical for DirectLake
 read performance.
 
