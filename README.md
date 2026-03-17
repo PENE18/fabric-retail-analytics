@@ -189,6 +189,7 @@ A semantic model is created directly from the Lakehouse SQL endpoint. Power BI
 reads Delta files at Spark scale without importing or duplicating data.
 
 ![Description of image](screen/PowerBi.png)
+
 **DirectLake vs alternatives:**
 
 | Mode        | Data copy | Refresh needed | Scale   |
