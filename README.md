@@ -82,6 +82,7 @@ prices) to make the Silver cleansing step meaningful.
 spark_df = spark.createDataFrame(df)
 spark_df.write.mode('overwrite').parquet('Files/raw/sales/')
 ```
+![Description of image](screen/generate_data.png)
 
 ### Step 2 — Bronze load (raw zone)
 
